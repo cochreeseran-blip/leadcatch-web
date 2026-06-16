@@ -12,17 +12,30 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:       #0B0F0B;
-      --surface:  #111711;
-      --surface2: #172117;
-      --accent:   #4E7D62;
-      --accent-lt:#8FBA9F;
-      --accent-dim:rgba(78,125,98,0.15);
-      --white:    #F0F4F1;
-      --ink:      #E4EAE5;
-      --ink2:     #96A89B;
-      --ink3:     #5E6E63;
-      --border:   #1A251A;
+      --bg:        #0B0F0B;
+      --surface:   #111711;
+      --surface2:  #172117;
+      --sage:      #4E7D62;
+      --sage-lt:   #8FBA9F;
+      --sage-dim:  rgba(78,125,98,0.15);
+      /* KnockTrakr brand colors */
+      --kt-navy:   #0F2B4C;
+      --kt-navy2:  #1C3D5F;
+      --kt-red:    #D63C2F;
+      /* neutral warm dark for about section */
+      --warm:      #131210;
+      --warm2:     #1D1B18;
+      /* extra accent colors */
+      --amber:     #C97B2F;
+      --amber-lt:  #E8A95A;
+      --blue:      #3B6EA8;
+      --blue-lt:   #7AAFD4;
+      --white:     #F0F4F1;
+      --ink:       #E4EAE5;
+      --ink2:      #96A89B;
+      --ink3:      #5E6E63;
+      --border:    #1A251A;
+      --border-warm:#231F1A;
     }
 
     html { scroll-behavior: smooth; }
@@ -42,7 +55,7 @@
       display: flex; align-items: center; justify-content: space-between;
       padding: 0 48px;
       height: 64px;
-      background: rgba(11,15,11,0.92);
+      background: rgba(11,15,11,0.94);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
     }
@@ -56,11 +69,9 @@
       letter-spacing: -0.02em;
     }
 
-    .nav-logo span { color: var(--accent-lt); }
+    .nav-logo span { color: var(--sage-lt); }
 
-    .nav-links {
-      display: flex; gap: 32px; list-style: none;
-    }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
 
     .nav-links a {
       font-size: 13px; font-weight: 500;
@@ -68,11 +79,11 @@
       transition: color 0.2s;
     }
 
-    .nav-links a:hover { color: var(--accent-lt); }
+    .nav-links a:hover { color: var(--sage-lt); }
 
     .nav-cta {
       font-size: 13px; font-weight: 600;
-      background: var(--accent);
+      background: var(--sage);
       color: var(--white);
       padding: 9px 20px;
       border-radius: 6px;
@@ -94,7 +105,9 @@
     .hero::before {
       content: '';
       position: absolute; inset: 0;
-      background: radial-gradient(ellipse 70% 60% at 20% 50%, rgba(78,125,98,0.08) 0%, transparent 70%);
+      background:
+        radial-gradient(ellipse 60% 55% at 15% 55%, rgba(78,125,98,0.1) 0%, transparent 65%),
+        radial-gradient(ellipse 40% 40% at 80% 30%, rgba(59,110,168,0.06) 0%, transparent 60%);
       pointer-events: none;
     }
 
@@ -109,14 +122,14 @@
       display: inline-flex; align-items: center; gap: 10px;
       font-size: 11px; font-weight: 600;
       letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--accent-lt);
+      color: var(--sage-lt);
       margin-bottom: 32px;
     }
 
     .hero-eyebrow::before {
       content: '';
       display: block; width: 28px; height: 1px;
-      background: var(--accent);
+      background: var(--sage);
     }
 
     .hero h1 {
@@ -132,7 +145,7 @@
 
     .hero h1 em {
       font-style: normal;
-      color: var(--accent-lt);
+      color: var(--sage-lt);
     }
 
     .hero-sub {
@@ -148,7 +161,7 @@
     }
 
     .btn-primary {
-      background: var(--accent);
+      background: var(--sage);
       color: var(--white);
       font-size: 14px; font-weight: 600;
       padding: 14px 28px;
@@ -167,21 +180,18 @@
       transition: color 0.2s;
     }
 
-    .btn-ghost:hover { color: var(--accent-lt); }
+    .btn-ghost:hover { color: var(--sage-lt); }
     .btn-ghost::after { content: '→'; }
 
     /* ── SECTION BASE ── */
     section { padding: 100px 48px; }
 
-    .section-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-    }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
 
     .section-label {
       font-size: 10px; font-weight: 700;
       letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--accent-lt);
+      color: var(--sage-lt);
       margin-bottom: 14px;
     }
 
@@ -210,33 +220,50 @@
     .services-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      overflow: hidden;
+      gap: 16px;
     }
 
     .service-card {
-      background: var(--surface);
-      padding: 44px 36px;
-      transition: background 0.2s;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 40px 32px;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.2s, transform 0.15s;
     }
 
-    .service-card:hover { background: var(--surface2); }
+    .service-card:hover { transform: translateY(-3px); }
+
+    .service-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 3px;
+    }
+
+    .service-card.c-green::before { background: var(--sage); }
+    .service-card.c-blue::before  { background: var(--blue); }
+    .service-card.c-amber::before { background: var(--amber); }
+
+    .service-card.c-green:hover { border-color: var(--sage); }
+    .service-card.c-blue:hover  { border-color: var(--blue); }
+    .service-card.c-amber:hover { border-color: var(--amber); }
 
     .service-num {
       font-family: 'Syne', sans-serif;
       font-size: 11px; font-weight: 700;
       letter-spacing: 0.1em;
-      color: var(--accent);
       margin-bottom: 24px;
     }
+
+    .c-green .service-num { color: var(--sage-lt); }
+    .c-blue  .service-num { color: var(--blue-lt); }
+    .c-amber .service-num { color: var(--amber-lt); }
 
     .service-title {
       font-family: 'Syne', sans-serif;
       font-weight: 700;
-      font-size: 20px;
+      font-size: 19px;
       color: var(--white);
       margin-bottom: 12px;
       line-height: 1.2;
@@ -249,29 +276,32 @@
     }
 
     /* ── WORK ── */
-    .work { background: var(--bg); }
+    .work { background: var(--kt-navy); }
+
+    .work .section-label { color: #F08880; }
+    .work .section-title { color: var(--white); }
+    .work .section-sub   { color: rgba(255,255,255,0.55); }
 
     .work-card {
       margin-top: 56px;
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
+      grid-template-columns: 1fr 1.1fr;
+      background: var(--kt-navy2);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 14px;
       overflow: hidden;
     }
 
     .work-card-text {
-      padding: 56px 52px;
+      padding: 56px 48px;
       display: flex; flex-direction: column; justify-content: center;
     }
 
     .work-tag {
       font-size: 10px; font-weight: 700;
       letter-spacing: 0.12em; text-transform: uppercase;
-      color: var(--accent-lt);
-      margin-bottom: 20px;
+      color: #F08880;
+      margin-bottom: 16px;
     }
 
     .work-title {
@@ -286,7 +316,7 @@
 
     .work-desc {
       font-size: 15px;
-      color: var(--ink2);
+      color: rgba(255,255,255,0.6);
       line-height: 1.75;
       margin-bottom: 36px;
     }
@@ -294,76 +324,211 @@
     .work-link {
       display: inline-flex; align-items: center; gap: 8px;
       font-size: 14px; font-weight: 600;
-      color: var(--accent-lt);
+      color: #F08880;
       text-decoration: none;
       transition: gap 0.2s;
     }
 
     .work-link:hover { gap: 14px; }
 
+    /* ── DASHBOARD MOCK ── */
     .work-card-visual {
-      background: linear-gradient(135deg, var(--surface2) 0%, #0D160D 100%);
+      background: #080F18;
       display: flex; align-items: center; justify-content: center;
-      padding: 48px;
-      min-height: 340px;
-      border-left: 1px solid var(--border);
+      padding: 32px 28px;
+      border-left: 1px solid rgba(255,255,255,0.06);
     }
 
-    .mock-app {
-      width: 100%; max-width: 260px;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid var(--border);
+    .dash {
+      width: 100%;
+      max-width: 320px;
+      background: #0D1A28;
+      border: 1px solid rgba(255,255,255,0.08);
       border-radius: 10px;
+      overflow: hidden;
+      font-size: 11px;
+    }
+
+    .dash-topbar {
+      background: #0F2B4C;
+      padding: 10px 14px;
+      display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .dash-brand {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 13px;
+      color: #fff;
+      letter-spacing: -0.01em;
+    }
+
+    .dash-brand span { color: #D63C2F; }
+
+    .dash-live {
+      display: flex; align-items: center; gap: 5px;
+      font-size: 10px; font-weight: 600;
+      color: #4ADE80;
+    }
+
+    .dash-live-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #4ADE80;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.8); }
+    }
+
+    .dash-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,0.05);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .dash-stat {
+      background: #0D1A28;
+      padding: 10px 10px;
+      text-align: center;
+    }
+
+    .dash-stat-val {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 18px;
+      color: #fff;
+      line-height: 1;
+      margin-bottom: 3px;
+    }
+
+    .dash-stat-val.red { color: #D63C2F; }
+    .dash-stat-val.green { color: #4ADE80; }
+
+    .dash-stat-label {
+      font-size: 9px;
+      color: rgba(255,255,255,0.35);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    /* Map area */
+    .dash-map {
+      position: relative;
+      height: 100px;
+      background: #091420;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
       overflow: hidden;
     }
 
-    .mock-header {
-      background: rgba(78,125,98,0.1);
-      border-bottom: 1px solid var(--border);
-      padding: 12px 16px;
+    .dash-map-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 18px 18px;
+    }
+
+    .dash-pin {
+      position: absolute;
+      width: 10px; height: 10px;
+      border-radius: 50% 50% 50% 0;
+      transform: rotate(-45deg);
+    }
+
+    .dash-pin.red   { background: #D63C2F; }
+    .dash-pin.green { background: #4ADE80; }
+    .dash-pin.amber { background: #F59E0B; }
+
+    .dash-map-label {
+      position: absolute;
+      bottom: 6px; left: 8px;
+      font-size: 9px;
+      color: rgba(255,255,255,0.25);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    /* Rep leaderboard */
+    .dash-section-label {
+      padding: 8px 12px 4px;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+
+    .dash-rep {
       display: flex; align-items: center; gap: 8px;
+      padding: 7px 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
     }
 
-    .mock-dot { width: 8px; height: 8px; border-radius: 50%; }
+    .dash-rep:last-child { border-bottom: none; }
 
-    .mock-title {
-      font-size: 11px; font-weight: 600;
-      color: var(--ink2);
-      margin-left: 4px;
+    .dash-rep-rank {
+      width: 16px;
+      font-weight: 700;
+      font-size: 10px;
+      color: rgba(255,255,255,0.3);
+      text-align: center;
+      flex-shrink: 0;
     }
 
-    .mock-body { padding: 16px; }
+    .dash-rep-rank.gold { color: #F59E0B; }
 
-    .mock-stat {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 12px 14px;
-      margin-bottom: 8px;
-      display: flex; justify-content: space-between; align-items: center;
-    }
-
-    .mock-stat-label { font-size: 10px; color: var(--ink3); }
-    .mock-stat-val { font-size: 14px; font-weight: 700; color: var(--white); }
-    .mock-stat-val.green { color: var(--accent-lt); }
-
-    .mock-map {
-      height: 80px;
-      background: rgba(78,125,98,0.06);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      margin-top: 8px;
+    .dash-rep-avatar {
+      width: 22px; height: 22px;
+      border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
+      font-size: 9px; font-weight: 700;
+      color: #fff;
+      flex-shrink: 0;
     }
 
-    .mock-map-text { font-size: 10px; color: var(--ink3); }
+    .dash-rep-name {
+      flex: 1;
+      font-size: 11px;
+      color: rgba(255,255,255,0.8);
+      font-weight: 500;
+    }
+
+    .dash-rep-count {
+      font-size: 11px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .dash-rep-bar-wrap {
+      width: 48px;
+      height: 4px;
+      background: rgba(255,255,255,0.07);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .dash-rep-bar {
+      height: 100%;
+      border-radius: 2px;
+      background: #D63C2F;
+    }
 
     /* ── ABOUT ── */
-    .about { background: var(--surface); }
+    .about { background: var(--warm); }
+
+    .about .section-label { color: var(--sage-lt); }
+    .about .section-title { color: var(--white); }
 
     .about-grid {
       display: grid;
-      grid-template-columns: 320px 1fr;
+      grid-template-columns: 300px 1fr;
       gap: 80px;
       align-items: start;
       margin-top: 64px;
@@ -378,14 +543,13 @@
       object-position: center top;
       border-radius: 6px;
       display: block;
-      filter: grayscale(20%) brightness(0.9);
     }
 
     .about-photo-label {
       position: absolute;
       bottom: -1px; left: 0; right: 0;
-      background: var(--surface2);
-      border: 1px solid var(--border);
+      background: var(--warm2);
+      border: 1px solid var(--border-warm);
       border-top: none;
       padding: 16px 20px;
       border-radius: 0 0 6px 6px;
@@ -401,7 +565,7 @@
 
     .about-role {
       font-size: 12px;
-      color: var(--accent-lt);
+      color: var(--sage-lt);
       font-weight: 500;
       margin-top: 2px;
     }
@@ -410,7 +574,7 @@
 
     .about-content p {
       font-size: 16px;
-      color: var(--ink2);
+      color: rgba(228,234,229,0.7);
       line-height: 1.85;
       margin-bottom: 22px;
     }
@@ -420,7 +584,9 @@
     .about-content strong { color: var(--white); font-weight: 600; }
 
     /* ── CONTACT ── */
-    .contact { background: var(--bg); }
+    .contact { background: var(--surface); }
+
+    .contact .section-label { color: var(--sage-lt); }
 
     .contact-grid {
       display: grid;
@@ -437,7 +603,7 @@
 
     .contact-icon {
       width: 40px; height: 40px;
-      background: var(--accent-dim);
+      background: var(--sage-dim);
       border: 1px solid rgba(78,125,98,0.25);
       border-radius: 8px;
       display: flex; align-items: center; justify-content: center;
@@ -448,7 +614,7 @@
     .contact-item-label {
       font-size: 11px; font-weight: 600;
       letter-spacing: 0.08em; text-transform: uppercase;
-      color: var(--accent-lt);
+      color: var(--sage-lt);
       margin-bottom: 4px;
     }
 
@@ -472,7 +638,7 @@
     .form-field input,
     .form-field textarea,
     .form-field select {
-      background: var(--surface);
+      background: var(--bg);
       border: 1px solid var(--border);
       border-radius: 6px;
       padding: 12px 14px;
@@ -489,14 +655,14 @@
 
     .form-field input:focus,
     .form-field textarea:focus,
-    .form-field select:focus { border-color: var(--accent); }
+    .form-field select:focus { border-color: var(--sage); }
 
-    .form-field select option { background: var(--surface); color: var(--ink); }
+    .form-field select option { background: var(--bg); color: var(--ink); }
 
     .form-field textarea { resize: vertical; min-height: 110px; }
 
     .form-submit {
-      background: var(--accent);
+      background: var(--sage);
       color: var(--white);
       font-size: 14px; font-weight: 700;
       padding: 14px 28px;
@@ -532,12 +698,9 @@
       text-decoration: none;
     }
 
-    .footer-logo span { color: var(--accent); }
+    .footer-logo span { color: var(--sage); }
 
-    .footer-copy {
-      font-size: 12px;
-      color: var(--ink3);
-    }
+    .footer-copy { font-size: 12px; color: var(--ink3); }
 
     .footer-link {
       font-size: 12px;
@@ -546,7 +709,7 @@
       transition: color 0.2s;
     }
 
-    .footer-link:hover { color: var(--accent-lt); }
+    .footer-link:hover { color: var(--sage-lt); }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
@@ -599,17 +762,17 @@
       <p class="section-sub">We don't sell off-the-shelf software. We build what your operation needs — then we make sure it works.</p>
     </div>
     <div class="services-grid">
-      <div class="service-card">
+      <div class="service-card c-green">
         <div class="service-num">01</div>
         <div class="service-title">Custom Software Development</div>
         <p class="service-desc">Purpose-built web apps and tools designed around your workflows. If the software you need doesn't exist, we build it — from the ground up, the right way.</p>
       </div>
-      <div class="service-card">
+      <div class="service-card c-blue">
         <div class="service-num">02</div>
         <div class="service-title">Operational Systems Design</div>
         <p class="service-desc">We map how your business runs and build the systems — digital and process-based — that eliminate waste, reduce errors, and let your team move faster.</p>
       </div>
-      <div class="service-card">
+      <div class="service-card c-amber">
         <div class="service-num">03</div>
         <div class="service-title">Revenue Operations</div>
         <p class="service-desc">Sales tracking, lead management, territory control, rep accountability — systems that connect your field activity directly to your bottom line.</p>
@@ -632,29 +795,76 @@
         <p class="work-desc">GPS door-knock tracking for roofing crews. Live rep visibility, territory management, performance leaderboards — and flat pricing that doesn't punish you for growing your team.</p>
         <a href="https://knocktrakr.com" class="work-link">Visit KnockTrakr <span>→</span></a>
       </div>
+
       <div class="work-card-visual">
-        <div class="mock-app">
-          <div class="mock-header">
-            <div class="mock-dot" style="background:#4E7D62"></div>
-            <div class="mock-dot" style="background:#8FBA9F; margin-left:4px;"></div>
-            <span class="mock-title">KnockTrakr — Live View</span>
+        <div class="dash">
+          <!-- Top bar -->
+          <div class="dash-topbar">
+            <div class="dash-brand">Knock<span>Trakr</span></div>
+            <div class="dash-live"><div class="dash-live-dot"></div>8 reps live</div>
           </div>
-          <div class="mock-body">
-            <div class="mock-stat">
-              <span class="mock-stat-label">Doors knocked today</span>
-              <span class="mock-stat-val">47</span>
+
+          <!-- Stats row -->
+          <div class="dash-stats">
+            <div class="dash-stat">
+              <div class="dash-stat-val">47</div>
+              <div class="dash-stat-label">Doors today</div>
             </div>
-            <div class="mock-stat">
-              <span class="mock-stat-label">Active reps</span>
-              <span class="mock-stat-val green">8 live</span>
+            <div class="dash-stat">
+              <div class="dash-stat-val green">23</div>
+              <div class="dash-stat-label">Leads</div>
             </div>
-            <div class="mock-stat">
-              <span class="mock-stat-label">Leads this week</span>
-              <span class="mock-stat-val">23</span>
+            <div class="dash-stat">
+              <div class="dash-stat-val red">4</div>
+              <div class="dash-stat-label">Hot leads</div>
             </div>
-            <div class="mock-map">
-              <span class="mock-map-text">Live territory map</span>
-            </div>
+          </div>
+
+          <!-- Map -->
+          <div class="dash-map">
+            <div class="dash-map-grid"></div>
+            <div class="dash-pin green"  style="top:18px;  left:40px"></div>
+            <div class="dash-pin green"  style="top:28px;  left:90px"></div>
+            <div class="dash-pin red"    style="top:14px;  left:140px"></div>
+            <div class="dash-pin green"  style="top:45px;  left:60px"></div>
+            <div class="dash-pin amber"  style="top:50px;  left:110px"></div>
+            <div class="dash-pin green"  style="top:38px;  left:190px"></div>
+            <div class="dash-pin red"    style="top:60px;  left:160px"></div>
+            <div class="dash-pin green"  style="top:22px;  left:230px"></div>
+            <div class="dash-pin amber"  style="top:55px;  left:240px"></div>
+            <div class="dash-map-label">Live territory map</div>
+          </div>
+
+          <!-- Leaderboard -->
+          <div class="dash-section-label">Today's leaderboard</div>
+
+          <div class="dash-rep">
+            <div class="dash-rep-rank gold">1</div>
+            <div class="dash-rep-avatar" style="background:#D63C2F">AJ</div>
+            <div class="dash-rep-name">Alex J.</div>
+            <div class="dash-rep-count">18</div>
+            <div class="dash-rep-bar-wrap"><div class="dash-rep-bar" style="width:100%"></div></div>
+          </div>
+          <div class="dash-rep">
+            <div class="dash-rep-rank">2</div>
+            <div class="dash-rep-avatar" style="background:#1C3D5F">SW</div>
+            <div class="dash-rep-name">Sarah W.</div>
+            <div class="dash-rep-count">15</div>
+            <div class="dash-rep-bar-wrap"><div class="dash-rep-bar" style="width:83%"></div></div>
+          </div>
+          <div class="dash-rep">
+            <div class="dash-rep-rank">3</div>
+            <div class="dash-rep-avatar" style="background:#2D5016">MR</div>
+            <div class="dash-rep-name">Mike R.</div>
+            <div class="dash-rep-count">14</div>
+            <div class="dash-rep-bar-wrap"><div class="dash-rep-bar" style="width:78%"></div></div>
+          </div>
+          <div class="dash-rep">
+            <div class="dash-rep-rank">4</div>
+            <div class="dash-rep-avatar" style="background:#4A3500">TK</div>
+            <div class="dash-rep-name">Tyler K.</div>
+            <div class="dash-rep-count">11</div>
+            <div class="dash-rep-bar-wrap"><div class="dash-rep-bar" style="width:61%"></div></div>
           </div>
         </div>
       </div>
@@ -714,7 +924,7 @@
           <div class="contact-icon">🌐</div>
           <div>
             <div class="contact-item-label">Flagship product</div>
-            <div class="contact-item-val"><a href="https://knocktrakr.com" style="color:var(--accent-lt); text-decoration:none;">knocktrakr.com</a></div>
+            <div class="contact-item-val"><a href="https://knocktrakr.com" style="color:var(--sage-lt); text-decoration:none;">knocktrakr.com</a></div>
           </div>
         </div>
       </div>
