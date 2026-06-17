@@ -284,8 +284,6 @@
 
     .work-card {
       margin-top: 56px;
-      display: grid;
-      grid-template-columns: 1fr 1.1fr;
       background: var(--kt-navy2);
       border: 1px solid rgba(255,255,255,0.08);
       border-radius: 14px;
@@ -330,67 +328,6 @@
     }
 
     .work-link:hover { gap: 14px; }
-
-    /* ── DASHBOARD MOCK ── */
-    .work-card-visual {
-      background: #ffffff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-end;
-      padding: 36px 28px 0;
-      border-left: 1px solid rgba(255,255,255,0.06);
-    }
-
-    .work-screenshots-row {
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
-      gap: 20px;
-      width: 100%;
-    }
-
-    .work-screenshot { text-align: center; background: none; border: none; flex: 1; }
-
-    .work-screenshot img {
-      height: 280px;
-      width: auto;
-      max-width: 100%;
-      display: block;
-      margin: 0 auto;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
-    }
-
-    .work-screenshot-label {
-      margin-top: 8px;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-      color: #0F2B4C;
-    }
-
-    .work-screenshot-desc {
-      font-size: 12px;
-      color: #6B7D73;
-      margin-top: 3px;
-      line-height: 1.5;
-    }
-
-    .work-visual-cta {
-      margin-top: 20px;
-      padding: 12px 0 20px;
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--sage);
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: gap 0.2s;
-    }
-
-    .work-visual-cta:hover { gap: 10px; }
 
     .dash {
       width: 100%;
@@ -770,9 +707,7 @@
       .nav-links { display: none; }
       section { padding: 72px 20px; }
       .hero { padding: 100px 20px 60px; }
-      .work-card { grid-template-columns: 1fr; }
-      .work-card-visual { display: none; }
-      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+.about-grid { grid-template-columns: 1fr; gap: 40px; }
       .contact-grid { grid-template-columns: 1fr; gap: 40px; }
       .form-row { grid-template-columns: 1fr; }
       footer { padding: 28px 20px; flex-direction: column; align-items: flex-start; gap: 8px; }
@@ -849,21 +784,6 @@
         <a href="https://knocktrakr.com" class="work-link">Visit KnockTrakr <span>→</span></a>
       </div>
 
-      <div class="work-card-visual">
-        <div class="work-screenshots-row">
-          <div class="work-screenshot">
-            <img src="assets/knocktrakr-rep-home.png" alt="KnockTrakr rep live map view"/>
-            <div class="work-screenshot-label">Rep view</div>
-            <div class="work-screenshot-desc">Live GPS map &amp; knock logging</div>
-          </div>
-          <div class="work-screenshot">
-            <img src="assets/knocktrakr-manager-dashboard-cutout.png" alt="KnockTrakr manager dashboard"/>
-            <div class="work-screenshot-label">Manager dashboard</div>
-            <div class="work-screenshot-desc">Team overview &amp; territory control</div>
-          </div>
-        </div>
-        <a href="https://knocktrakr.com" class="work-visual-cta">Try KnockTrakr free →</a>
-      </div>
     </div>
   </div>
 </section>

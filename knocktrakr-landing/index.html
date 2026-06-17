@@ -592,59 +592,13 @@
 
     .footer-links a:hover { color: rgba(255,255,255,0.7); }
 
-    /* ── SCREENSHOTS SECTION ── */
-    .screenshots {
-      background: var(--navy);
-      padding: 0 48px 100px;
-    }
-
-    .screenshots-inner {
-      max-width: 860px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .screenshots-eyebrow {
-      font-size: 10px; font-weight: 700;
-      letter-spacing: 0.14em; text-transform: uppercase;
-      color: rgba(255,255,255,0.4);
-      margin-bottom: 16px;
-    }
-
-    .screenshots-heading {
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 800;
-      font-size: clamp(24px, 3.5vw, 36px);
-      color: var(--white);
-      letter-spacing: -0.02em;
-      margin-bottom: 52px;
-    }
-
-    .screenshots-phones {
-      display: flex;
-      justify-content: center;
-      align-items: flex-end;
-      gap: 32px;
-    }
-
-    .screenshots-phones img {
-      width: 240px;
-      height: auto;
-      max-width: 100%;
-      display: block;
-      box-shadow: 0 16px 48px rgba(0,0,0,0.4);
-    }
-
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
       nav { padding: 0 20px; }
       .nav-links { display: none; }
       section { padding: 72px 20px; }
       .hero { padding: 110px 20px 72px; }
-      .screenshots { padding: 0 20px 72px; }
-      .screenshots-phones { gap: 16px; }
-      .screenshots-phones img { width: 44vw; }
-      .hero-stats { flex-direction: column; max-width: 280px; }
+.hero-stats { flex-direction: column; max-width: 280px; }
       .hero-stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
       .hero-stat:last-child { border-bottom: none; }
       .features-grid { grid-template-columns: 1fr; }
@@ -696,18 +650,6 @@
     <div class="hero-stat">
       <div class="hero-stat-val"><span>$</span>299</div>
       <div class="hero-stat-label">Max monthly rate</div>
-    </div>
-  </div>
-</section>
-
-<!-- SCREENSHOTS -->
-<section class="screenshots">
-  <div class="screenshots-inner">
-    <div class="screenshots-eyebrow">The app in action</div>
-    <h2 class="screenshots-heading">See it in the field.</h2>
-    <div class="screenshots-phones">
-      <img src="assets/knocktrakr-rep-home.png" alt="KnockTrakr rep live map view — field rep's GPS map"/>
-      <img src="assets/knocktrakr-rep-log.png" alt="KnockTrakr rep logging a door knock"/>
     </div>
   </div>
 </section>
