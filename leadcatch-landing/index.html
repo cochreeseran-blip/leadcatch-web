@@ -334,9 +334,30 @@
     /* ── DASHBOARD MOCK ── */
     .work-card-visual {
       background: #080F18;
-      display: flex; align-items: center; justify-content: center;
-      padding: 32px 28px;
+      display: flex; align-items: flex-end; justify-content: center;
+      gap: 20px;
+      padding: 32px 28px 0;
       border-left: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .work-screenshot { text-align: center; }
+
+    .work-screenshot img {
+      height: 280px;
+      width: auto;
+      max-width: 100%;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .work-screenshot-caption {
+      margin-top: 10px;
+      padding-bottom: 16px;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
     }
 
     .dash {
@@ -797,75 +818,13 @@
       </div>
 
       <div class="work-card-visual">
-        <div class="dash">
-          <!-- Top bar -->
-          <div class="dash-topbar">
-            <div class="dash-brand">Knock<span>Trakr</span></div>
-            <div class="dash-live"><div class="dash-live-dot"></div>8 reps live</div>
-          </div>
-
-          <!-- Stats row -->
-          <div class="dash-stats">
-            <div class="dash-stat">
-              <div class="dash-stat-val">47</div>
-              <div class="dash-stat-label">Doors today</div>
-            </div>
-            <div class="dash-stat">
-              <div class="dash-stat-val green">23</div>
-              <div class="dash-stat-label">Leads</div>
-            </div>
-            <div class="dash-stat">
-              <div class="dash-stat-val red">4</div>
-              <div class="dash-stat-label">Hot leads</div>
-            </div>
-          </div>
-
-          <!-- Map -->
-          <div class="dash-map">
-            <div class="dash-map-grid"></div>
-            <div class="dash-pin green"  style="top:18px;  left:40px"></div>
-            <div class="dash-pin green"  style="top:28px;  left:90px"></div>
-            <div class="dash-pin red"    style="top:14px;  left:140px"></div>
-            <div class="dash-pin green"  style="top:45px;  left:60px"></div>
-            <div class="dash-pin amber"  style="top:50px;  left:110px"></div>
-            <div class="dash-pin green"  style="top:38px;  left:190px"></div>
-            <div class="dash-pin red"    style="top:60px;  left:160px"></div>
-            <div class="dash-pin green"  style="top:22px;  left:230px"></div>
-            <div class="dash-pin amber"  style="top:55px;  left:240px"></div>
-            <div class="dash-map-label">Live territory map</div>
-          </div>
-
-          <!-- Leaderboard -->
-          <div class="dash-section-label">Today's leaderboard</div>
-
-          <div class="dash-rep">
-            <div class="dash-rep-rank gold">1</div>
-            <div class="dash-rep-avatar" style="background:#D63C2F">AJ</div>
-            <div class="dash-rep-name">Alex J.</div>
-            <div class="dash-rep-count">18</div>
-            <div class="dash-rep-bar-wrap"><div class="dash-rep-bar" style="width:100%"></div></div>
-          </div>
-          <div class="dash-rep">
-            <div class="dash-rep-rank">2</div>
-            <div class="dash-rep-avatar" style="background:#1C3D5F">SW</div>
-            <div class="dash-rep-name">Sarah W.</div>
-            <div class="dash-rep-count">15</div>
-            <div class="dash-rep-bar-wrap"><div class="dash-rep-bar" style="width:83%"></div></div>
-          </div>
-          <div class="dash-rep">
-            <div class="dash-rep-rank">3</div>
-            <div class="dash-rep-avatar" style="background:#2D5016">MR</div>
-            <div class="dash-rep-name">Mike R.</div>
-            <div class="dash-rep-count">14</div>
-            <div class="dash-rep-bar-wrap"><div class="dash-rep-bar" style="width:78%"></div></div>
-          </div>
-          <div class="dash-rep">
-            <div class="dash-rep-rank">4</div>
-            <div class="dash-rep-avatar" style="background:#4A3500">TK</div>
-            <div class="dash-rep-name">Tyler K.</div>
-            <div class="dash-rep-count">11</div>
-            <div class="dash-rep-bar-wrap"><div class="dash-rep-bar" style="width:61%"></div></div>
-          </div>
+        <div class="work-screenshot">
+          <img src="assets/knocktrakr-rep-home.png" alt="KnockTrakr rep live map view"/>
+          <div class="work-screenshot-caption">Rep — live map view</div>
+        </div>
+        <div class="work-screenshot">
+          <img src="assets/knocktrakr-manager-dashboard-cutout.png" alt="KnockTrakr manager dashboard"/>
+          <div class="work-screenshot-caption">Manager dashboard</div>
         </div>
       </div>
     </div>

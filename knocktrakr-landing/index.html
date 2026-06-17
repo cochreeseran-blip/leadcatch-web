@@ -592,12 +592,32 @@
 
     .footer-links a:hover { color: rgba(255,255,255,0.7); }
 
+    /* ── HERO PHONES ── */
+    .hero-phones {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      align-items: flex-end;
+      margin-top: 56px;
+    }
+
+    .hero-phone {
+      height: 340px;
+      width: auto;
+      display: block;
+    }
+
+    .hero-phone:first-child { transform: translateY(20px); }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
       nav { padding: 0 20px; }
       .nav-links { display: none; }
       section { padding: 72px 20px; }
       .hero { padding: 110px 20px 72px; }
+      .hero-phones { gap: 12px; margin-top: 40px; }
+      .hero-phone { height: 200px; }
+      .hero-phone:first-child { transform: translateY(12px); }
       .hero-stats { flex-direction: column; max-width: 280px; }
       .hero-stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
       .hero-stat:last-child { border-bottom: none; }
@@ -651,6 +671,10 @@
       <div class="hero-stat-val"><span>$</span>299</div>
       <div class="hero-stat-label">Max monthly rate</div>
     </div>
+  </div>
+  <div class="hero-phones">
+    <img src="assets/knocktrakr-rep-home.png" alt="KnockTrakr rep live map view" class="hero-phone"/>
+    <img src="assets/knocktrakr-rep-log.png" alt="KnockTrakr rep logging a knock" class="hero-phone"/>
   </div>
 </section>
 
